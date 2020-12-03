@@ -1,0 +1,14 @@
+.dea
+*.sqlite3
+mvenv
+myvenv
+*.pyc
+.env
+.vscode
+html5_hammer-html
+venv/*
+.idea/*
+__pycache__/
+staticfiles
+my_bkp_postgresql
+database
