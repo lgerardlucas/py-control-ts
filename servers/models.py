@@ -1,7 +1,8 @@
 from django.db import models
-from datetime import date
+from datetime import datetime, date, timedelta
 from companies.models import Companies
 from django.contrib.auth.models import User
+from django.utils.html import format_html
 
 class Servers(models.Model):
     companie = models.ForeignKey(Companies, null=False, blank=False, on_delete=False,
@@ -52,9 +53,24 @@ class Servers(models.Model):
     user_verification = models.ForeignKey(
         User, on_delete=False, null=True, blank=True, related_name='User', verbose_name="Usuário")        
 
+
+    def validate_verification(self):
+        if self.last_verification < date.today()+timedelta(days=30):
+            color_alert = 'black'
+        else:
+            color_alert = 'red'
+        return format_html(
+            '<span style="color: {};">{} - {} </span>',
+            color_alert,
+            self.last_verification.strftime('%d/%m/%Y'),
+            self.user_verification.username.upper(),
+       )
+    validate_verification.short_description = 'Última Verificação'
+
+
     class Meta:
         verbose_name = 'Servidor'
         verbose_name_plural = 'Servidores'
 
     def __str__(self):
-        return self.processor
+        return self.companie.name
