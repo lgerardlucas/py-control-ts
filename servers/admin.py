@@ -9,7 +9,7 @@ class InformationInline(admin.StackedInline): #TabularInline):
 
     max_num = 1 #Information.objects.all().count()
 
-    list_display = ('get_server_nickname_companie', 'database_name',
+    list_display = ('get_server_nickname_companie', 'database_name', 
                     'get_database_size_database_size_initials',
 
                     'get_hd_size_one_hd_size_one_initials',
@@ -34,7 +34,7 @@ class InformationInline(admin.StackedInline): #TabularInline):
     )
 
 class InformationAdmin(admin.ModelAdmin):
-    list_display = ('get_server_nickname_companie','database_name',
+    list_display = ('get_server_nickname_companie', 'database_name', 'get_sistem_operation',
                     'get_database_size_database_size_initials',
 
                     'get_hd_size_one_hd_size_one_initials',
@@ -57,8 +57,9 @@ class InformationAdmin(admin.ModelAdmin):
         ('Informações da Última Verificação', {
             'fields': (('last_verification', 'user_verification',),)}),
     )
-    
-admin.site.register(Information,InformationAdmin)
+
+
+admin.site.register(Information, InformationAdmin)
 
 
 class ServersAdmin(admin.ModelAdmin):
@@ -69,7 +70,7 @@ class ServersAdmin(admin.ModelAdmin):
             'fields': (('companie',),)}),
 
         ('Especificação do Servidor', {
-            'fields': (('processor'), ('memory_ram', 'ip_network'), ('partition_size_specification', 'machine_type',),)}),
+            'fields': (('processor'), ('memory_ram', 'ip_network'), ('partition_size_specification', 'machine_type',), (('provider_acquisition','date_acquisition')),)}),
 
         ('Especificação do Sistema Operacional', {
             'fields': (('sistem_operation', 'virtual_machine',), ('sistem_specification',), ('user_sistem_operation', 'passwd_sistem_operation'),), }),
@@ -88,5 +89,7 @@ class ServersAdmin(admin.ModelAdmin):
     save_on_top = True
     show_full_result_count = True
 
+admin.site.register(Servers, ServersAdmin)
 
-admin.site.register(Servers,ServersAdmin)
+
+

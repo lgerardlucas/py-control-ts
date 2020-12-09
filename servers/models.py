@@ -62,6 +62,12 @@ class Servers(models.Model):
     database_version = models.CharField(
         'Versão', max_length=5, null=True, blank=True) 
 
+    date_acquisition = models.DateField(
+        'Data de Compra', blank=True, null=True)
+
+    provider_acquisition = models.CharField(
+        'Fornecedor do Equipamento', max_length=150, null=True, blank=True)
+
     last_verification = models.DateField(
         'Última Verificação', blank=True,null=True)
 
@@ -207,10 +213,17 @@ class Information(models.Model):
             return '.'
     get_hd_size_two_available_hd_size_two_available_initials.short_description = 'Tam/Disc Disp(BD)'
 
+    def get_sistem_operation(self):
+        return self.server.sistem_operation
+    get_sistem_operation.short_description = 'S.O'
+
     class Meta:
         verbose_name = 'Servidor - Informações'
         verbose_name_plural = 'Servidores - Informações'
-        ordering = ['-last_verification']
+        ordering = ['server__servers__companie__nickname',
+                    'server__servers__machine_type',
+                    'server__servers__ip_network',
+                    '-last_verification']
 
     def __str__(self):
         return self.database_name
