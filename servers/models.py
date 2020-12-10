@@ -69,7 +69,7 @@ class Servers(models.Model):
         'Fornecedor do Equipamento', max_length=150, null=True, blank=True)
 
     last_verification = models.DateField(
-        'Última Verificação', blank=True,null=True)
+        'Última Verificação', blank=True, null=True, default=date.today())
 
     user_verification = models.ForeignKey(
         User, on_delete=False, null=True, blank=True, related_name='User', verbose_name="Usuário")        
@@ -109,31 +109,37 @@ class Servers(models.Model):
 class Information(models.Model):
     server = models.ForeignKey(Servers, null=False, blank=False, on_delete=True,
         related_name='server_info', verbose_name='Servidor')
+
     database_name = models.CharField(
         'Name do Banco', max_length=50, blank=True, null=True,default='.')
 
-    database_size = models.IntegerField(
+    database_size = models.FloatField(
         'Tamanho do Banco', blank=True, null=True)
 
+    DATABASESIZEINITIALCHOICES = (
+        ('MB', 'MB'),
+        ('GB', 'GB'),
+        ('TB', 'TB'),
+    )
     database_size_initials = models.CharField(max_length=2,
-        blank=True, null=True, default='GB')
+        choices=DATABASESIZEINITIALCHOICES,blank=True, null=True, default='GB')
 
-    hd_size_one = models.IntegerField(
+    hd_size_one = models.FloatField(
         'Tam/Disco(SO)', blank=True, null=True)
     hd_size_one_initials = models.CharField(max_length=2,
         blank=True, null=True, default='GB')
 
-    hd_size_one_available = models.IntegerField(
+    hd_size_one_available = models.FloatField(
         'Tam/Disco Disp(SO)', blank=True, null=True)
     hd_size_one_available_initials = models.CharField(max_length=2,
         blank=True, null=True, default='GB')
 
-    hd_size_two = models.IntegerField(
+    hd_size_two = models.FloatField(
         'Tam. Disco(BD)', blank=True, null=True)
     hd_size_two_initials = models.CharField(max_length=2,
         blank=True, null=True, default='GB')
 
-    hd_size_two_available = models.IntegerField(
+    hd_size_two_available = models.FloatField(
         'Tam/Disc Disp(BD)', blank=True, null=True)
     hd_size_two_available_initials = models.CharField(max_length=2,
         blank=True, null=True,default='GB')
