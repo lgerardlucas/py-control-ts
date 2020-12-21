@@ -3,7 +3,7 @@ from datetime import datetime, date, timedelta
 from companies.models import Companies
 from django.contrib.auth.models import User
 from django.utils.html import format_html
-
+from django.utils import timezone
 
 class Servers(models.Model):
     companie = models.ForeignKey(Companies, null=False, blank=False, on_delete=False,
@@ -69,7 +69,7 @@ class Servers(models.Model):
         'Fornecedor do Equipamento', max_length=150, null=True, blank=True)
 
     last_verification = models.DateField(
-        'Última Verificação', blank=True, null=True, default=date.today())
+        'Última Verificação', blank=True, null=True, default=timezone.now)
 
     user_verification = models.ForeignKey(
         User, on_delete=False, null=True, blank=True, related_name='User', verbose_name="Usuário")        
@@ -145,7 +145,7 @@ class Information(models.Model):
         blank=True, null=True,default='GB')
 
     last_verification = models.DateField(
-        'Última Verificação', blank=True, null=True,default=date.today())
+        'Última Verificação', blank=True, null=True,default=timezone.now)
 
     user_verification = models.ForeignKey(
         User, on_delete=False, null=False, blank=False, related_name='user_information', verbose_name="Usuário")
