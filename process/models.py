@@ -18,10 +18,10 @@ class Process(models.Model):
 
     user_create = models.ForeignKey(
         User, on_delete=False, null=True, blank=True, related_name='User_routine', verbose_name="Usuário")        
-    ''' 
+     
     date_create = models.DateField(
         'Atualizada', blank=True, null=True, default=timezone.now())
-    '''
+    
     date_update = models.DateField(
         'Emissão', blank=True, null=True, auto_now=True)
 

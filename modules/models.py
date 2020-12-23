@@ -18,7 +18,7 @@ class Modules(models.Model):
         choices=MENUCHOICES,blank=True, null=True, default='Outros')        
 
     name = models.CharField(
-        'Módulo', max_length=80, blank=False,null=False)
+        'Módulo', max_length=80, blank=False,null=False,db_index=True)
 
     description = models.TextField(
         'Descrição', blank=True, null=True)

@@ -4,9 +4,9 @@ from datetime import date
 
 class Companies(models.Model):
     name = models.CharField(
-        'Empresa', max_length=200, null=False, blank=False,)
+        'Empresa', max_length=200, null=False, blank=False,db_index=True)
     nickname = models.CharField(
-        'Apelido', max_length=50, null=False, blank=False,)
+        'Apelido', max_length=50, null=False, blank=False,db_index=True)
     owner = models.CharField(
         'Proprietário', max_length=100,null=False, blank=False,)
     owner_phone = models.CharField(
