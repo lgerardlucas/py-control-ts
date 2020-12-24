@@ -36,6 +36,9 @@ class Process(models.Model):
     get_nickname_companie.short_description = 'Empresa'
 
     class Meta:
-        verbose_name = 'Rotina - Suporte'
-        verbose_name_plural = 'Rotinas - Suporte'
+        verbose_name = 'Processo - Suporte'
+        verbose_name_plural = 'Processos - Suporte'
         ordering = ['title']
+
+    def __str__(self):
+        return self.title
