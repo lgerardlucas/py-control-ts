@@ -2,7 +2,7 @@
 Sistema de Controle de Documentos Internos de Uma Empresa
 
 Sobre o projeto
-* PY-Control, é um sistema web para controle de documentação interna de uma empresa. A partir deste sistema, será possível registrar todos em quaiquer documento interno, sendo eles: Controle de equipamento, clientes e seus servidores, controle de horas extras, etc. A partir de sua estrutura, será possível com poucas linhas, ter em minutos uma área pronta para gravação das informações a ser controladas
+* PY-Control, é um sistema web para controle de documentação interna de uma empresa. A partir deste sistema, será possível registrar todos em quaiquer documento interno, sendo eles: Controle de equipamento, clientes e seus servidores, controle de horas extras, etc. A partir de sua estrutura, será possível com poucas linhas, ter em minutos uma área pronta para gravação das informações a ser controladas utilizando num primeiro momento, somente a parte administradora do django. 
 
 Tecnologias Aplicadas
 ---------------------

@@ -4,6 +4,7 @@ mvenv
 myvenv
 *.pyc
 .env
+.env.backup
 .vscode
 html5_hammer-html
 venv/*

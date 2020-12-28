@@ -3,6 +3,10 @@ from datetime import date
 
 
 class Companies(models.Model):
+    """
+    Model referente as empresas a serem tratadas por este sistema em diversas 
+    processos diferentes
+    """
     name = models.CharField(
         'Empresa', max_length=200, null=False, blank=False,db_index=True)
     nickname = models.CharField(

@@ -6,6 +6,10 @@ from django.utils.html import format_html
 from django.utils import timezone
 
 class Servers(models.Model):
+    """
+    Dados referente a cada servidor de uma empresa, tendo como informacao,
+    dados como: processador, memoria, tipo de so e senhas...
+    """
     companie = models.ForeignKey(Companies, null=False, blank=False, on_delete=False,
         related_name='empresa_server', verbose_name='Empresa')
 

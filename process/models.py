@@ -5,6 +5,12 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 class Process(models.Model):
+    """
+    Processos diversos executados em detreminadas empresas. 
+    Esta parte do sistema, substitui as anotacoes feitas em docs de procedimentos
+    como: dar permissao a um diretorio ou arquivo em linux ou instalar um sistema windows
+          no linux usando um script linux
+    """
     companie = models.ForeignKey(Companies, null=False, blank=False, on_delete=False,
         related_name='empresa_routine', verbose_name='Empresa')
 

@@ -3,6 +3,10 @@ from django.utils import timezone
 from systems.models import Systems
 
 class Modules(models.Model):
+    """
+    Modulos referente a um determinado sistema. 
+    Exemplo: Menu = Cadastro contendo o modulo = Cidades
+    """
     system = models.ForeignKey(Systems, null=False, blank=False, on_delete=False,
         related_name='system_module', verbose_name='Sistema')
 

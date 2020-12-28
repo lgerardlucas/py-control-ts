@@ -70,8 +70,12 @@ admin.site.register(Information, InformationAdmin)
 
 
 class ServersAdmin(admin.ModelAdmin):
+    # Campos que aparecerão ao entrar na model
     list_display = ('get_nickname_companie', 'ip_network', 'sistem_operation', 'sistem_specification',
                     'get_memory_ram_initial', 'partition_size_specification', 'database_definition', 'database_version', 'validate_verification')
+
+    # Campos que aparecerão ao entrar nos detalhes do model
+    # Modo agrupado - Denomina um grupo de informações separada por um título
     fieldsets = (
         ('Empresa Proprietária', {
             'fields': (('companie',),)}),
@@ -88,13 +92,25 @@ class ServersAdmin(admin.ModelAdmin):
         ('Informações da Última Verificação', {
             'fields': (('last_verification', 'user_verification',),)}),
     )
+    # Relaciona duas tabelas em um so lugar
     inlines = (InformationInline,)
+
+    # Paginação para o listplay
     list_per_page = 50
+
+    # Campos que unidos são usados no processo de filtragem por seleção
     list_filter = ('companie', 'sistem_operation')
+
+    # Campos que unidos são usados no processo de filtragem por digitação
     search_fields = ('companie__name', 'companie__nickname','memory_ram',
                      'sistem_operation', 'ip_network')
+    # Se true, aparece um campo para salvar e duplicar
     save_as = True
+
+    # Duplica os botões de salvar, apagar e editar em cima
     save_on_top = True
+
+    # Força a informa o total de registros na tabela se false, mostra o texto "Mostrar Tudo"
     show_full_result_count = True
 
 admin.site.register(Servers, ServersAdmin)
