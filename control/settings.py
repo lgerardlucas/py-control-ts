@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'process',
     'modules',
     'systems',
+    'bank',
 ]
 
 MIDDLEWARE = [
