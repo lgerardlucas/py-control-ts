@@ -41,6 +41,11 @@ class Process(models.Model):
         return self.companie.nickname+' - '+self.machine_type
     get_nickname_companie.short_description = 'Empresa'
 
+    def get_user_process(self):
+        return self.user_create.username.capitalize()
+    get_user_process.short_description = 'Usuário'
+
+
     class Meta:
         verbose_name = 'Processo - Suporte'
         verbose_name_plural = 'Processos - Suporte'

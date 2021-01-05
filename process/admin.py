@@ -3,7 +3,7 @@ from .models import Process
 
 class ProcessAdmin(admin.ModelAdmin):
     # Campos que aparecerão ao entrar na model    
-    list_display = ('title','sistem_operation','specification',)
+    list_display = ('title', 'sistem_operation', 'get_user_process','specification',)
 
     # Paginação para o listplay
     list_per_page = 25

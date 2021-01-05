@@ -7,7 +7,7 @@ class BankAdmin(admin.ModelAdmin):
     """
     # Campos que aparecerão ao entrar na model
     list_display = ('get_nickname_companie_bank', 'bank', 'enable_bank', 'date_update',
-                    'date_create', 'cedante_code', 'agency', 'account',)
+                    'date_create', 'cedante_code', 'agency', 'account', 'get_user_bank',)
 
     # Paginação para o listplay
     list_per_page = 50

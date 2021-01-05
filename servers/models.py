@@ -88,7 +88,7 @@ class Servers(models.Model):
             '<span style="color: {};">{} - {} </span>',
             color_alert,
             self.last_verification.strftime('%d/%m/%Y'),
-            self.user_verification.username.upper(),
+            self.user_verification.username.capitalize(),
        )
     validate_verification.short_description = 'Última Verificação'
 
@@ -164,7 +164,7 @@ class Information(models.Model):
             '<span style="color: {};">{} - {} </span>',
             'black',
             self.last_verification.strftime('%d/%m/%Y'),
-            self.user_verification.username.upper(),
+            self.user_verification.username.capitalize(),
         )
     verification_data.short_description = 'Última Verificação'
 

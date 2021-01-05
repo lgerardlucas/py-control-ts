@@ -143,5 +143,5 @@ ADMINS=[('Marcos', 'lgerardlucas@gmail.com',)]
 
 PRINCIPAL_AUTH_URL_NAMESPACE='control'
 
-GRAPPELLI_ADMIN_TITLE = "Py-Controle-Serve"
+GRAPPELLI_ADMIN_TITLE = "Py-Controle"
 GRAPPELLI_SWITCH_USER = True

@@ -2,6 +2,7 @@ from django.db import models
 from companies.models import Companies
 from datetime import date
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Bank(models.Model):
     """
@@ -10,6 +11,9 @@ class Bank(models.Model):
     """
     companie = models.ForeignKey(Companies, null=False, blank=False, on_delete=False,
         related_name='empresa_bank', verbose_name='Empresa')
+
+    user_create = models.ForeignKey(
+        User, on_delete=False, null=False, blank=False, related_name='user_bank', verbose_name="Usuário")
 
     MENUCHOICES = (
         ('Banco do Brasil - 001', 'Banco do Brasil - 001'),
@@ -43,6 +47,10 @@ class Bank(models.Model):
     def get_nickname_companie_bank(self):
         return self.companie.nickname
     get_nickname_companie_bank.short_description = 'Empresa'
+
+    def get_user_bank(self):
+        return self.user_create.username.capitalize()
+    get_user_bank.short_description = 'Usuário'
 
     class Meta:
         verbose_name = 'Remessa Bancária'
