@@ -26,14 +26,15 @@ class Bank(models.Model):
     bank = models.CharField('Banco', max_length=100,
         choices=MENUCHOICES, blank=True, null=True, default='Outros')
 
-    enable_bank = models.BooleanField(
-        'Ativo', blank=False, null=False,default=True)        
-
-    date_update = models.DateField(
+    date_create = models.DateTimeField(
         'Cadastro', blank=True, null=True)
 
-    date_create = models.DateTimeField(
-        'Últ/Verificação', blank=True, null=True, default=timezone.now)
+    enable_bank = models.BooleanField(
+        'Ativo', blank=False, null=False, default=True)
+
+    date_inactive = models.DateField(
+        'Inativado', blank=True, null=True)
+
 
     cedante_code = models.CharField(
         'Cód/Cedente', max_length=50, blank=True, null=True)
@@ -43,6 +44,9 @@ class Bank(models.Model):
     
     account = models.CharField(
         'Conta Corrente',max_length=50, blank=True, null=True)
+
+    date_update = models.DateTimeField(
+        'Últ/Verificação', blank=True, null=True, default=timezone.now)
 
     def get_nickname_companie_bank(self):
         return self.companie.nickname

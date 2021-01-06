@@ -6,7 +6,7 @@ class BankAdmin(admin.ModelAdmin):
     Lista de campos para o administrador
     """
     # Campos que aparecerão ao entrar na model
-    list_display = ('get_nickname_companie_bank', 'bank', 'enable_bank', 'date_update',
+    list_display = ('get_nickname_companie_bank', 'bank', 'enable_bank', 'date_inactive', 'date_update',
                     'date_create', 'cedante_code', 'agency', 'account', 'get_user_bank',)
 
     # Paginação para o listplay
