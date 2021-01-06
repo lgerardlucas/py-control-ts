@@ -27,5 +27,7 @@ class BankAdmin(admin.ModelAdmin):
     # Força a informa o total de registros na tabela se false, mostra o texto "Mostrar Tudo"
     show_full_result_count = True
 
+    # Campos que serão links para acesso a model
+    list_display_links = ('get_nickname_companie_bank','bank',)
 
 admin.site.register(Bank, BankAdmin)
